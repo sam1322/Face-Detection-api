@@ -20,35 +20,6 @@ const db = knex({
     }
   });
 
-
-const database  = {
-    users:[
-        {
-            id : '123',
-            name : 'John' ,
-            email : 'john@email.com' ,
-            password:'cookies',
-            entries : 0 ,
-            joined : new Date()
-        }, 
-        {
-            id : '124',
-            name : 'Sally' ,
-            email : 'sally@email.com' ,
-            password:'pastry' ,
-            entries : 0 ,
-            joined : new Date()   
-        }
-    ], 
-    login:[
-        {
-            id :'987',
-            hash :'',
-            email : 'john@email.com'
-        }
-    ]
-}
-
 app.get('/' ,(req, res)=>{
     res.json(database.users)
 })
