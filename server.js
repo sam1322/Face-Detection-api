@@ -11,6 +11,7 @@ const profile = require('./controllers/profile') ;
 const image = require('./controllers/image');
 app.use(cors())
 app.use(bodyParser.json()) ;
+// app.use(express.json()) ;
  
 const saltRounds = 10 
 
@@ -18,9 +19,11 @@ const db = knex({
     client: 'pg',
     connection: {
       host : '127.0.0.1',
-      user : 'postgres',
+      // user : 'postgres',
+      user : 'sriram',
       password : '1234',
-      database : 'face_detection'
+      // database : 'face_detection'
+      database: 'smart-brain'
     }
   });
 
@@ -33,7 +36,7 @@ app.post('/signin',(req,res) =>{signin.handleSignIn(req,res,db,bcrypt)})
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt,saltRounds)})
 
 
-app.get('/profile/:id',(req,res) =>{profile.handleProfileGet(req,res,db)} ) 
+// app.get('/profile/:id',(req,res) =>{profile.handleProfileGet(req,res,db)} ) 
 
 app.put('/image' ,(req ,res) =>{image.handleImage(req,res,db)} )
 
